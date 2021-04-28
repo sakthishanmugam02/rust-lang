@@ -40,4 +40,37 @@ fn main() {
     let strings = "sakthi saravanan shanmugam";
     let dad = &strings[16..26];
     println!("dad: {}", dad);
+
+    say_hello(dad);
+    let result = sqrt(5);
+    println!("SQRT: {}", result);
+
+    learn_control_statements();
+}
+
+fn say_hello(name: &str) {
+    println!("hello, {} !", name);
+}
+
+fn sqrt(num: i32) -> i32 {
+    return num*num;
+} 
+
+fn learn_control_statements() {
+    let flag = true;
+    if flag {
+        println!("if - block - true");
+    } else {
+        println!("else - block - false");
+    }
+
+    let is_confirmed = true;
+    let is_active = true;
+    match (is_confirmed, is_active) {
+        (true, true) => println!("both true"),
+        (false, false) => {
+            println!("both false")
+        },
+        _ => {}
+    }
 }
