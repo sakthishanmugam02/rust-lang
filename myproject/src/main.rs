@@ -46,6 +46,20 @@ fn main() {
     println!("SQRT: {}", result);
 
     learn_control_statements();
+
+    loop {
+        println!("test loop");
+        break;
+    }
+
+    let mut cond = true;
+    while cond {
+        println!("{}", cond);
+        cond = false;
+    }
+    for value in array.iter() {
+        println!("array values - {}", value);
+    }
 }
 
 fn say_hello(name: &str) {
