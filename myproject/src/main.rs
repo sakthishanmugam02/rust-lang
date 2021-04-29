@@ -60,6 +60,35 @@ fn main() {
     for value in array.iter() {
         println!("array values - {}", value);
     }
+
+    enum TestEnum {
+        Test1,
+        Test2
+    }
+
+    let _value1 = TestEnum::Test2;
+    let value = TestEnum::Test1;
+    match value {
+        TestEnum::Test1 => println!("Test1"),
+        TestEnum::Test2 => println!("Test2")
+    }
+
+    enum DateFormat {
+        DDMMYYYY(i16, i16, i16),
+        DDMM(i16, i16)
+    }
+
+    let mut date : DateFormat;
+    date = DateFormat::DDMMYYYY(01, 12, 2000);
+    match date {
+        DateFormat::DDMMYYYY(dd, mm, yyyy) => println!("{}, {}, {}", dd, mm, yyyy),
+        DateFormat::DDMM(dd, mm) => println!("{}, {}", dd, mm)
+    }
+    date = DateFormat::DDMM(01, 12);
+    match date {
+        DateFormat::DDMMYYYY(dd, mm, yyyy) => println!("{}, {}, {}", dd, mm, yyyy),
+        DateFormat::DDMM(dd, mm) => println!("{}, {}", dd, mm)
+    }
 }
 
 fn say_hello(name: &str) {
