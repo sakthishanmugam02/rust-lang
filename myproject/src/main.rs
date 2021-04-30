@@ -1,3 +1,18 @@
+// tuple struct - useful when defining unit structs to avoid acciendental use of invalid data type
+struct Meter (i8);
+
+// unit struct - useful when defining methods. struct without any members
+
+struct Temp;
+
+enum Time {
+    HHMMSS {
+        hh: i8,
+        mm: i8, 
+        ss: i8
+    }
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -89,6 +104,39 @@ fn main() {
         DateFormat::DDMMYYYY(dd, mm, yyyy) => println!("{}, {}, {}", dd, mm, yyyy),
         DateFormat::DDMM(dd, mm) => println!("{}, {}", dd, mm)
     }
+
+    struct Student {
+        name: String,
+        age: i8
+    }
+
+    let sakthi = Student {
+        name: "sakthi".to_string(),
+        age: 30
+    };
+
+    println!("my name is {}, and am {} years old", sakthi.name, sakthi.age);
+
+    let side = Meter(2);
+
+    area_of_square(side);
+
+    enum Time {
+        HHMMSS {
+            hh: i8,
+            mm: i8, 
+            ss: i8
+        }
+    }
+    
+    let now = Time::HHMMSS{hh: 10,mm: 48,ss: 44,};
+    match now {
+        Time::HHMMSS{hh, mm, ss} => println!("Time is {}:{}:{}", hh, mm, ss)
+    }
+}
+
+fn area_of_square (side : Meter) {
+    println!("area of square: {}", side.0 * side.0);
 }
 
 fn say_hello(name: &str) {
@@ -116,4 +164,6 @@ fn learn_control_statements() {
         },
         _ => {}
     }
+
+    //println!("{:?}", Temp);
 }
