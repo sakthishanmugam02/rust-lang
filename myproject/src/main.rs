@@ -133,6 +133,28 @@ fn main() {
     match now {
         Time::HHMMSS{hh, mm, ss} => println!("Time is {}:{}:{}", hh, mm, ss)
     }
+
+    struct ConcreteType {
+        name: String
+    }
+
+    impl ConcreteType {
+        fn new() -> ConcreteType {
+            return ConcreteType {
+                name: "".to_string(),
+            }
+        }
+        fn modify(&mut self, name: String) {
+            self.name = name;
+        }
+        fn hi(&self) {
+            println!("hello {}", self.name);
+        }
+    }
+
+    let mut method_test = ConcreteType::new();
+    method_test.modify("sakthi".to_string());
+    method_test.hi();
 }
 
 fn area_of_square (side : Meter) {
