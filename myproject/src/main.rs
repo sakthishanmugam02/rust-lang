@@ -155,6 +155,16 @@ fn main() {
     let mut method_test = ConcreteType::new();
     method_test.modify("sakthi".to_string());
     method_test.hi();
+
+    let singular = String::from("book");
+    let plurals = plural(singular.clone());
+    // println!("Plural is {}", plurals);
+    println!("Plural of {} is {}", singular, plurals);
+}
+
+fn plural(s : String) -> String {
+    // return s + "s"; this is equialent to below since no semi-colon
+    s + "s"
 }
 
 fn area_of_square (side : Meter) {
